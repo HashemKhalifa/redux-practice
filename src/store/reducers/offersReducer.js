@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 import {
   FETCH_OFFERS,
   SORT_BY,
@@ -12,7 +13,6 @@ const initialState = {
   error: '',
 };
 export default function(state = initialState, action) {
-
   switch (action.type) {
     case FETCH_OFFERS:
       return {
