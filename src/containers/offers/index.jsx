@@ -43,7 +43,7 @@ class Offers extends Component {
     const noResult = isFetched && offers.length === 0;
     return (
       <>
-        {!isFetched && (
+        {!isFetched && !error && (
           <div className={styles.loading}>
             Loading <img src={loader} alt="Loading" />
           </div>
@@ -58,9 +58,9 @@ class Offers extends Component {
               {offers &&
                 offers.map(offer => <Offer key={offer.id} {...offer} />)}
             </div>
-            {(noResult || error) && <Error error={error} noOffer={noResult} />}
           </div>
         )}
+        {(noResult || error) && <Error error={error} noOffer={noResult} />}
       </>
     );
   }
