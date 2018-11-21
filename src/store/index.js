@@ -8,6 +8,7 @@ const initialState = {
     sortType: 'name',
     search: '',
     error: '',
+    isFetched: false,
   },
 };
 const middleware = [thunk];

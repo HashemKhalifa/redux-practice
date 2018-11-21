@@ -11,6 +11,7 @@ const initialState = {
   sortType: 'name',
   search: '',
   error: '',
+  isFetched: false,
 };
 export default function(state = initialState, action) {
   switch (action.type) {
@@ -18,6 +19,7 @@ export default function(state = initialState, action) {
       return {
         ...state,
         items: action.payload,
+        isFetched: true,
       };
     case SORT_BY:
       return {

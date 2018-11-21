@@ -7,6 +7,7 @@ import Offer from '../../components/offer';
 import Search from '../../components/search';
 import Error from '../../components/error';
 import SortButtons from '../../components/sort';
+import loader from '../../assets/images/loader.gif';
 
 import styles from './offers.scss';
 
@@ -38,18 +39,28 @@ class Offers extends Component {
   };
 
   render() {
-    const { search, error, sortBy, offers } = this.props;
-    const noResult = offers.length === 0;
+    const { search, error, sortBy, offers, isFetched } = this.props;
+    const noResult = isFetched && offers.length === 0;
     return (
       <>
-        <div className={styles.header}>
-          <Search search={search} handleSearch={this.onHandleSearch} />
-          <SortButtons handleSort={this.onHandleSortBy} sortBy={sortBy} />
-        </div>
-        <div className={styles.offers_container}>
-          {offers && offers.map(offer => <Offer key={offer.id} {...offer} />)}
-        </div>
-        {(noResult || error) && <Error error={error} noOffer={noResult} />}
+        {!isFetched && (
+          <div className={styles.loading}>
+            Loading <img src={loader} alt="Loading" />
+          </div>
+        )}
+        {isFetched && (
+          <div>
+            <div className={styles.header}>
+              <Search search={search} handleSearch={this.onHandleSearch} />
+              <SortButtons handleSort={this.onHandleSortBy} sortBy={sortBy} />
+            </div>
+            <div className={styles.offers_container}>
+              {offers &&
+                offers.map(offer => <Offer key={offer.id} {...offer} />)}
+            </div>
+            {(noResult || error) && <Error error={error} noOffer={noResult} />}
+          </div>
+        )}
       </>
     );
   }
@@ -59,6 +70,7 @@ const mapStateToProps = state => ({
   offers: getOffers(state),
   sortBy: getSort(state),
   error: state.offers.error,
+  isFetched: state.offers.isFetched,
 });
 
 const mapDispatchToProps = dispatch => ({

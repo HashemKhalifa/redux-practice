@@ -9,17 +9,27 @@
     max-width: 100%;
   }
 }
-.header{
+.header {
   width: 100%;
   max-width: calc(100% - 1rem);
-  margin: 1rem .5rem 0 .5rem;
+  margin: 1rem 0.5rem 0 0.5rem;
+}
+.loading {
+  position: fixed;
+  text-align: center;
+  font-size: 2rem;
+  color: #000;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  padding-top: 10%;
 }
 
 @media (min-width: 992px) {
   .offers_container {
     grid-template-columns: repeat(4, 1fr);
   }
-  .header{
+  .header {
     margin: 1rem auto 0 auto;
     max-width: 50rem;
   }
