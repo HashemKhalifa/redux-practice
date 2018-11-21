@@ -49,7 +49,7 @@ class Offers extends Component {
           </div>
         )}
         {isFetched && (
-          <div>
+          <>
             <div className={styles.header}>
               <Search search={search} handleSearch={this.onHandleSearch} />
               <SortButtons handleSort={this.onHandleSortBy} sortBy={sortBy} />
@@ -58,7 +58,7 @@ class Offers extends Component {
               {offers &&
                 offers.map(offer => <Offer key={offer.id} {...offer} />)}
             </div>
-          </div>
+          </>
         )}
         {(noResult || error) && <Error error={error} noOffer={noResult} />}
       </>
