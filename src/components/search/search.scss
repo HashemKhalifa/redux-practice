@@ -1,0 +1,14 @@
+.search[type="text"]{
+  padding: .75em 1.75em;
+  width: 100%;
+  border: 1px solid #dbe2e8;
+  color: #2e3d49;
+  background: url('../../assets/icons/search.svg') calc(100% - 1.4em) center/1.6rem no-repeat #fff;
+  outline: 0;
+  height: 3.8rem;
+  font-size: .9rem;
+  border-radius: .8rem;
+  display: block;
+  margin-bottom: 2rem;
+  box-shadow: 5px 5px 25px 0 rgba(46,61,73,.2);
+}

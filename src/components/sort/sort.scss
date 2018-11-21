@@ -1,0 +1,51 @@
+.sortBy {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  li {
+    display: block;
+    list-style: none;
+    margin: 0 0 .5rem 0;
+    &:last-child {
+      margin: 0;
+    }
+  }
+  button {
+    width: 100%;
+    cursor: pointer;
+    color: #525c65;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.25rem;
+    padding: 0.5rem;
+    transition: 0.3s;
+    text-transform: capitalize;
+    border: 1px solid transparent;
+    &:focus {
+      outline: none;
+    }
+    &:hover {
+      color: #24292d;
+      border-bottom: 1px solid;
+    }
+  }
+
+  button.selected-sort {
+    border-radius: 0.4rem;
+    color: #fff;
+    background-color: #02b3e4;
+  }
+
+  @media (min-width: 992px) {
+    li {
+      display: inline-block;
+      margin: 0 0.5rem 0.5rem;
+      &:last-child {
+        margin: 0;
+      }
+      button {
+        width: auto;
+      }
+    }
+  }
+}
