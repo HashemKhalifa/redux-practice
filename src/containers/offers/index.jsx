@@ -21,10 +21,18 @@ class Offers extends Component {
     this.props.fetchOffers();
   }
 
+  /**
+   * @description handle sort by [name, price, popularity]
+   * @param e
+   */
   onHandleSortBy = e => {
     this.props.sortByAction(e.target.name);
   };
 
+  /**
+   * @description handle search from user input!
+   * @param e
+   */
   onHandleSearch = e => {
     this.props.searchOffer(e.target.value);
   };
